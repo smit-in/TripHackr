@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TripHackr Landmark</title>
+
+    <link rel="stylesheet"  href="/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+
+</head>
+<body>
+
+		<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  			<div class="container">
+  				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+  			     <span class="navbar-toggler-icon"></span>
+  				</button>
+ 				 <!-- <a class="navbar-brand mb-0 h1" href="/">TripHackr</a> -->
+				  <img class="logo" src="https://i.ibb.co/C266fcF/triphackr-removebg-preview.png" width="145" alt="">
+ 
+
+			  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+   			 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    		  <li class="nav-item active">
+      		  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+     		 </li>
+     		 <li class="nav-item">
+     	 	  <a class="nav-link" href="#">About Us</a>
+     		 </li>
+     		 <!-- <li class="nav-item">
+      		  <a class="nav-link" href="#contactUs" tabindex="-1" aria-disabled="true">Contacts</a>
+			  </li> -->
+			  <li class="nav-item">
+      		  <a class="nav-link" href="/admin" tabindex="-1" aria-disabled="true">Dashboard</a>
+     		 </li>
+   			</ul>
+
+			
+			<!-- popup text -->
+			<div class="popup">
+				<div class="box">
+					Share your details to the viewers, So that they can contact you personally!
+				</div>
+				
+			</div>
+
+			<a href="#" class="gfg">
+			<button class="btn btn-outline-light gfg" id="contactUs" data-toggle="modal" data-target="#myModal">Too Lazy to Write?</button>
+			</a>
+			<!-- popup text end -->
+
+  			</div>
+  			</div>
+			 
+			 
+			  <!--container-->
+		</nav>
+	</header>
+
+
+
+
+    <main>
+        <div class="container sight-container">
+            <h1><%= title %></h1>
+            <hr>
+            <img src="<%= imageUrl %>" alt="big-ben">
+            <hr>
+            <p class="date"><%= date %></p>
+            <hr>
+            <p class="text"><%= text %></p>
+            <div class="map"></div>
+        </div>
+
+	</main>
+	
+ <!--Modal window of TOO LAZY TO WRITE -->
+ <div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Details will be Visible in Dashboard ✨</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="email-request-form">
+          <div class="form-group">
+    		<label for="name">Your Name</label>
+   			<input type="text" class="form-control" id="name" placeholder="Name" required>
+  		  </div>
+  		  <div class="form-group">
+    		<label for="email">Your Personal Email (Don't worry we won't spam)</label>
+   			<input type="text" class="form-control" id="email"  placeholder="Email" required>
+  		  </div>
+  		  <div class="form-group">
+   			 <label for="message">City Name</label>
+			
+			<input type="text" class="form-control" id="message" placeholder="Where have you visited recently?" required>
+ 		  </div>
+ 		  <input type="submit" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/posts.js"></script>
+<script src="js/emails.js"></script>
+<script src="js/main.js"></script>
+
+	<script>
+		$flag = -1;
+	
+		$("a.gfg").hover(
+			function () {
+				$("div.popup").attr("style", "display:block");
+			},
+			function () {
+				if ($flag == -1) {
+					$("div.popup").attr("style", "display:none");
+				}
+			}
+		);
+	
+		$("a.gfg").click(function () {
+			$flag = -1;
+		});
+	</script>
+  	<script src="/js/maps.js"></script>
+
+
+</body>
+</html>
