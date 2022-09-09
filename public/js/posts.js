@@ -1,5 +1,5 @@
 async function getPosts(){
-  return await fetch('http://localhost:3000/posts')
+  return await fetch('https://trip--hackr.herokuapp.com/posts')
         .then((res) => res.json())
         .then((data) => data);
 }

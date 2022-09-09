@@ -9,7 +9,7 @@
     articlesBlock.addEventListener('click', async function(e){
         if(e.target.classList.contains('btn-edit')){
             id = e.target.parentNode.parentNode.querySelector('.id').value; //post.id
-            let postInfo = await fetch('http://localhost:3000/posts/'+id)
+            let postInfo = await fetch('https://trip--hackr.herokuapp.com/posts/'+id)
                                     .then((res) => res.json())
                                     .then((data) => data) //return data
             
@@ -29,7 +29,7 @@
 
     updateForm.addEventListener('submit', function(e){
         e.preventDefault();
-        fetch('http://localhost:3000/posts/'+id, {
+        fetch('https://trip--hackr.herokuapp.com/posts/'+id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

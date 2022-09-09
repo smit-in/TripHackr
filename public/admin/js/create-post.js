@@ -16,7 +16,7 @@ createForm.addEventListener('submit', function(e){
     data.append('description', text.substring(0, text.indexOf('.')+1));
     data.append('imageFile', createImageFile.files[0]); //now the file which we choose will be sent to the server
 
-    fetch('http://localhost:3000/posts' , {
+    fetch('https://trip--hackr.herokuapp.com/posts' , {
         method: 'POST',
        /* headers: {
             'Content-Type': 'application/json'
